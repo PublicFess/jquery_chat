@@ -1,35 +1,22 @@
+var Message = require('./Message');
+var Chat = require('./Chat');
+var Form = require('./Form');
+
 $(document).ready(function() {
 
-  global.messages = JSON.parse(window.localStorage.getItem('messages')) || [
-    {
-      message: 'lorem ipsum',
-      children: [
-        {
-          message: 'lorem ipsum',
-          children: []
-        }
-      ]
-    }
-  ];
-
   var domMessages = $('.messages');
+  var chat = new Chat();
+  var form = new Form();
 
-  var Message = require('./Message');
-
-  function renderList(domNode, messages) {
-    messages.forEach(function(m) {
-      var message = new Message(m);
-      var messageDom = message.compileMessage();
-      domNode.append(messageDom);
-      messageDom.animate({opacity: 1}, 100);
-      if (message.data.children && message.data.children.length) {
-        renderList(messageDom, message.data.children);
-      }
-    });
-  };
-  renderList(domMessages, global.messages);
+  chat.renderList(domMessages);
 
   $('#close_form').on('click', function() {
     $('#form').hide();
+  });
+
+  var answerForm = $('#form form');
+  answerForm.on('submit', function(ev) {
+    ev.preventDefault();
+    chat.addMessage(answerForm.find('textarea').val().replace(/\r?\n/g, '<br />'), form.context.data, form.context.target);
   });
 });

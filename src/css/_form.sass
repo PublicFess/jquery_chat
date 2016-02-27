@@ -1,7 +1,13 @@
 $form_width: 600px
 $form_background: #eee
+$form_height: 170px
 
 #form
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
+  height: $form_height
   width: 100%
   background: $form_background
   display: none
@@ -11,5 +17,7 @@ $form_background: #eee
     padding: 16px
     textarea
       width: 100%
+      font-size: 16px
+      height: 100px
     button
       margin-top: 16px

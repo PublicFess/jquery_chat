@@ -61,6 +61,11 @@ gulp.task('server', function() {
   });
 });
 
+gulp.task('copyImg', function() {
+  gulp.src('src/img/*')
+  .pipe(gulp.dest('./dist/img'));
+});
+
 gulp.task('build', function(cb) {
   runSequence(
     'css:watch',
@@ -68,6 +73,7 @@ gulp.task('build', function(cb) {
     'js:watch',
     'jsLibs:watch',
     'dev:watcher',
+    'copyImg',
     'server',
     cb)
 });

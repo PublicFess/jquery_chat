@@ -13,6 +13,7 @@ module.exports = function Form() {
     openForm: function() {
       var self = this;
       self.form.show();
+      $('#container').addClass('form_active');
     },
     closeForm: function() {
       var self = this;
@@ -20,6 +21,7 @@ module.exports = function Form() {
       self.form.hide();
       form.find('textarea').val('');
       self.setContext(null, null);
+      $('#container').removeClass('form_active');
     }
 
   };

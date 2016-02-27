@@ -35,7 +35,8 @@ module.exports = function Chat() {
     renderList: function (domNode, messages) {
       var self = this;
       messages = messages || self.messages;
-      messages.forEach(function(m) {
+      for (var i=0; i < messages.length; i++) {
+        var m = messages[i];
         var message = new MessageConstructor(m);
         var messageDom = message.compileMessage();
         domNode.append(messageDom);
@@ -43,7 +44,7 @@ module.exports = function Chat() {
         if (message.data.children && message.data.children.length) {
           self.renderList(messageDom, message.data.children);
         }
-      });
+      }
     }
   };
 

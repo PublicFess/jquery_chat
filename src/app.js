@@ -11,7 +11,7 @@ $(document).ready(function() {
   chat.renderList(domMessages);
 
   $('#close_form').on('click', function() {
-    $('#form').hide();
+    form.closeForm();
   });
 
   var answerForm = $('#form form');

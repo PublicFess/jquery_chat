@@ -12,8 +12,8 @@ var MessageConstructor = function(m) {
       return $('<div class="message-content"></div');
     },
 
-    getIcon: function() {
-      return $('<i class="material-icons">account_box</i>');
+    getImage: function() {
+      return $('<img src="img/account.png"></img>');
     },
 
     getText: function(m) {
@@ -33,7 +33,7 @@ var MessageConstructor = function(m) {
       var Form = new FormConstructor();
       var message = this.getMessage();
       var message_content = this.getWrap();
-      var icon = this.getIcon();
+      var icon = this.getImage();
       var message_text = this.getText(this.data);
       var buttonWrap = this.getReplyBtnWrap();
       var button = this.getReplyBtn();

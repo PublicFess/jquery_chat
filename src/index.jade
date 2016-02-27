@@ -15,4 +15,8 @@ html
       #body
         .messages
       #form
-        form(name='answer')
+        form()
+          textarea(rows=5, name='answer')
+          .centered
+            button#submit_button(type='submit') Отправить
+            button#close_form(type='button') Отменить
